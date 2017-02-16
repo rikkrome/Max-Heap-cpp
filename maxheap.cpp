@@ -85,19 +85,19 @@ void MaxHeap::percolateUp(int i) {
 void MaxHeap::percolateDown(int index) {
     
     int child;
-    int temp;
+    int temp = arr[index];
     int n = size();
-    for( temp = move(arr[index]); left(index) < n; index = child){
+    for( ; left(index) < n; index = child){
         child = left(index);
         if(child != n - 1 && arr[child] < arr[child + 1])
             ++child;
         if(temp < arr[child])
-            arr[index] = move(arr[child]);
+            arr[index] = arr[child];
         else
             break;
         
     }
-    arr[index] = move(temp);
+    arr[index] = temp;
     
 
 }
